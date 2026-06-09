@@ -1,0 +1,56 @@
+{
+  "name": "partial-codex",
+  "version": "0.1.0",
+  "description": "Project-level Codex CLI configuration manager",
+  "type": "module",
+  "bin": {
+    "pcodex": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write 'src/**/*.ts'",
+    "format:check": "prettier --check 'src/**/*.ts'",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm typecheck && pnpm lint && pnpm test && pnpm build"
+  },
+  "files": [
+    "dist",
+    ".env.example",
+    "LICENSE"
+  ],
+  "keywords": [
+    "codex",
+    "cli",
+    "config",
+    "openai",
+    "project-config"
+  ],
+  "author": "xcjy8",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xcjy8/partial-codex"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.0.0"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}
